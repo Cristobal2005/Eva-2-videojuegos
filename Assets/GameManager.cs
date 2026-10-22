@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using TMPro; // Librería de TextMeshPro
+using TMPro;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,7 +29,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI textoObjetosUI;
     public TextMeshProUGUI textoAlertaJefeUI;
     public float duracionAlertaJefe = 2.5f;
-   
+    public bool juegoIniciado = false;
+    public GameObject MenuJuego;
 
     void Awake()
     {
@@ -40,6 +42,16 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // Si debe iniciar jugando, aseguramos el movimiento
+        if (GameOverManager.debeIniciarJugando)
+        {
+            if (MenuJuego != null)
+            {
+                MenuJuego.SetActive(false);
+            }
+            PlayerController.puedeMoverse = true;
+        }
+
         ActualizarTextoObjetos();
 
         if (textoAlertaJefeUI != null)
@@ -74,11 +86,14 @@ public class GameManager : MonoBehaviour
     {
         jefeActivo = true;
 
-        
         if (textoAlertaJefeUI != null)
         {
             for (int i = 0; i < cantidadParpadeos; i++)
             {
+                if (SoundEffectsManager.instance != null)
+                {
+                    SoundEffectsManager.instance.ReproducirAlertaJefe();
+                }
                 textoAlertaJefeUI.gameObject.SetActive(true);
                 yield return new WaitForSeconds(intervaloParpadeo);
                 textoAlertaJefeUI.gameObject.SetActive(false);
@@ -87,16 +102,20 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            
             yield return new WaitForSeconds(duracionAlertaJefe);
         }
 
-        
+        if (CamaraShake.instance != null)
+        {
+            CamaraShake.instance.Sacudir(0.4f, 0.25f);
+        }
+
         if (jefePrefab != null)
         {
             Instantiate(jefePrefab, puntoSpawnJefe, Quaternion.identity);
         }
     }
+
     public void JefeVencido()
     {
         jefeActivo = false;
@@ -104,21 +123,24 @@ public class GameManager : MonoBehaviour
     }
 
     public void RecogerObjetoClave()
-{
-    objetosClaveRecogidos++;
-    ActualizarTextoObjetos();
-
-    
-    if (TilemapBackgroundChanger.instance != null)
     {
-        TilemapBackgroundChanger.instance.AvanzarSiguienteFondo();
-    }
+        objetosClaveRecogidos++;
+        ActualizarTextoObjetos();
 
-    if (objetosClaveRecogidos >= totalObjetosParaGanar)
-    {
-        Debug.Log("¡GANASTE EL JUEGO!");
+        if (TilemapBackgroundChanger.instance != null)
+        {
+            TilemapBackgroundChanger.instance.AvanzarSiguienteFondo();
+        }
+
+        if (objetosClaveRecogidos >= totalObjetosParaGanar)
+        {
+            Debug.Log("¡GANASTE EL JUEGO!");
+            if (GameOverManager.instance != null)
+            {
+                GameOverManager.instance.MostrarVictoria();
+            }
+        }
     }
-}
 
     void ActualizarTextoObjetos()
     {

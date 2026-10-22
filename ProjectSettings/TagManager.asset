@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Enemy
   - Collectible
+  - Boss
   layers:
   - Default
   - TransparentFX

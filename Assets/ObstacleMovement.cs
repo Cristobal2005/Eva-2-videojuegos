@@ -12,6 +12,10 @@ public class ObstacleMovement : MonoBehaviour
 
         if (transform.position.x <= limiteIzquierda)
         {
+            if (GameOverManager.instance != null)
+            {
+                GameOverManager.instance.RegistrarObstaculoEsquivado();
+            }
             Destroy(gameObject);
         }
     }

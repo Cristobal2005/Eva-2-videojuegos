@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 910383098224462919}
   - component: {fileID: 7192631914956706487}
   - component: {fileID: 5564578653059315033}
+  - component: {fileID: -1577323159703572394}
   m_Layer: 0
   m_Name: EnemigoTierra
   m_TagString: Enemy
@@ -152,5 +153,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e383bbf30c3f34d85f6113d8e2a4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  vida: 3
+  vida: 2
   limiteIzquierda: -15
+--- !u!95 &-1577323159703572394
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7839298388176049269}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c6d2738d44ea5a64cb5981be72e584ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -46,6 +46,10 @@ public class EnemyHealth : MonoBehaviour
         {
             GameManager.instance.SumarBaja();
         }
+        if (GameOverManager.instance != null)
+        {
+            GameOverManager.instance.RegistrarEnemigoMuerto();
+        }
 
         Destroy(gameObject);
     }

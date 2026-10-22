@@ -22,6 +22,10 @@ public class CollectibleItem : MonoBehaviour
         
         if (collision.CompareTag("Player"))
         {
+            if (SoundEffectsManager.instance != null)
+            {
+                SoundEffectsManager.instance.ReproducirObjetoEspecial();
+            }
             if (GameManager.instance != null)
             {
                 GameManager.instance.RecogerObjetoClave();

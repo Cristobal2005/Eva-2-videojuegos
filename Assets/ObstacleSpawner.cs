@@ -57,6 +57,7 @@ public class ObstacleSpawner : MonoBehaviour
                     
                     itemsValidos.Add(item);
                 }
+                
             }
 
             
