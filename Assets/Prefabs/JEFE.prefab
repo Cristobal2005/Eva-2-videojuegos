@@ -190,12 +190,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3b8c7c13de62945a50e41a89502ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossController
-  vidaMaxima: 15
+  vidaMaxima: 20
   barraVida: {fileID: 1538398098550855749}
   velocidadEntrada: 4
   posicionParadaX: 6
   frecuencia: 2.5
-  amplitud: 0.6
+  amplitud: 1.5
   objetoVictoriaPrefab: {fileID: 8430741841288755755, guid: 226be9a026051aa47b37da756cadaf42, type: 3}
   colorDanio: {r: 1, g: 0, b: 0, a: 1}
   duracionParpadeo: 0.08
@@ -306,9 +306,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 15
+  m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: 15
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

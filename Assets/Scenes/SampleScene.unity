@@ -3572,7 +3572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   fuerzaSalto: 8
-  saltosMaximos: 2
+  saltosMaximos: 1
   balaPrefab: {fileID: 5522583813244875323, guid: 621ff60e5c57a56498875fe67ce53012, type: 3}
   firePoint: {fileID: 820847634}
   muzzleFlash: {fileID: 819388416}
@@ -7411,7 +7411,7 @@ MonoBehaviour:
   musicaNormal: {fileID: 8300000, guid: ecce3bb75b9157048b881bce87037fbc, type: 3}
   musicaJefe: {fileID: 8300000, guid: 037bc0154cd3db6458cddfeaf66f5c07, type: 3}
   duracionTransicion: 1.5
-  volumenMaximo: 1
+  volumenMaximo: 0.55
 --- !u!82 &485427947
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21930,7 +21930,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.69
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
